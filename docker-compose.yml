@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: aquiTemBarbearia
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    networks:
+      - aquiTemBarbearia
+    ports:
+      - 5432:5432
+
+  webapp:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - aquiTemBarbearia
+
+networks:
+  aquiTemBarbearia:
+    driver: bridge
