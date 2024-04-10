@@ -3,7 +3,7 @@ partial class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, world!");
+        Console.WriteLine("Hello, world");
         var builder = WebApplication.CreateBuilder(args);
 
         // Configure services
@@ -13,6 +13,7 @@ partial class Program
 
         // Define routes
         app.MapGet("/", () => "Hello World!");
+        
         app.MapPost("/test", () => "Hello World!");
 
         // Run the application
