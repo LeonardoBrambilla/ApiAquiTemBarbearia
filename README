@@ -9,7 +9,7 @@ Caso voce queira rodar com o docker use(docker e wsl2 precisa estar instalado)
 docker compose up
 
 
-Quando for fazer alguma mudança no codigo, crie uma branch particular e depois faça um pull request na v1.0
+Quando for fazer alguma mudança no codigo, vá para a v1.0, crie uma branch particular e depois faça um pull request na v1.0
 
 git branch "nome da branch"  -- para criar uma branch particular
 
