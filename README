@@ -1,0 +1,25 @@
+Crie uma pasta para o projeto
+
+Use git clone https://github.com/LeonardoBrambilla/ApiAquiTemBarbearia.git
+
+dotnet run -- para rodar o projeto
+
+Caso voce queira rodar com o docker use(docker e wsl2 precisa estar instalado)
+
+docker compose up
+
+
+Quando for fazer alguma mudança no codigo, crie uma branch particular e depois faça um pull request na v1.0
+
+git branch "nome da branch"  -- para criar uma branch particular
+
+git chekcout "nome da branch"  -- para mudar de branch
+
+OU
+
+git chekcout -b "nome da branch"  -- para criar e mudar de branch
+
+
+Loge no github desktop ou coloque uma chave ssl do seu perfil do github no computador
+
+Suba a branch e faça uma pull request para a v1.0

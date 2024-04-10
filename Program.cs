@@ -12,7 +12,7 @@ partial class Program
         var app = builder.Build();
 
         // Define routes
-        app.MapGet("/", () => "Hello World!");
+        app.MapGet("/", () => "Hello Worl");
         app.MapPost("/test", () => "Hello World!");
 
         // Run the application
