@@ -73,9 +73,9 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerGenOptions>();
 
-    // Define routes
-    app.MapGet("/", () => "Hello Worl");
-    app.MapPost("/test", () => "Hello World!");
+        // Define routes
+        app.MapGet("/", () => "Hello Worl");
+        app.MapPost("/test", () => "Hello World!");
 
 builder.Services.AddCors(options => {
     options.AddPolicy(name: "MyPolicy",
