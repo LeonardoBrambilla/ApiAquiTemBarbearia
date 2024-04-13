@@ -75,6 +75,9 @@ builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwa
 
 
 builder.Services.AddCors(options => {
+    // Define routes
+    app.MapGet("/", () => "Hello Worl");
+    app.MapPost("/test", () => "Hello World!");
     options.AddPolicy(name: "MyPolicy",
         policy =>
         {
@@ -85,7 +88,7 @@ builder.Services.AddCors(options => {
 });
 
 var key = Encoding.ASCII.GetBytes(ApiAquiTemBarbearia.Key.Secret);
-
+        
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
