@@ -5,6 +5,7 @@ WORKDIR /app
 # Copy the published output of your ASP.NET Core application to the container
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
+RUN dotnet tool install --global dotnet-ef
 COPY ["ApiAquiTemBarbearia.csproj", "./"]
 RUN dotnet restore "ApiAquiTemBarbearia.csproj"
 COPY . .
