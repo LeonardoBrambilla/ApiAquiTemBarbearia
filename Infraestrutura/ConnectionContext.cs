@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ApiAquiTemBarbearia.Domain.Model.EmployeeAggregate;
 using ApiAquiTemBarbearia.Domain.Model.UserAggregate;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +10,6 @@ namespace ApiAquiTemBarbearia.Infraestrutura
 {
     public class ConnectionContext : DbContext
     {
-        public DbSet<Employee> Employees { get; set; }
         public DbSet<User> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -25,8 +23,6 @@ namespace ApiAquiTemBarbearia.Infraestrutura
                 SqlConn.Open();
 
                 SqlConn.Close();
-
-
             }
         }
          

@@ -1,34 +1,20 @@
 ﻿using ApiAquiTemBarbearia.Domain.DTOs;
-using ApiAquiTemBarbearia.Domain.Model.EmployeeAggregate;
+using ApiAquiTemBarbearia.Domain.Model.UserAggregate;
 
 namespace ApiAquiTemBarbearia.Infraestrutura.Repositories
 {
-    public class UserRepository : IEmployeeRepository
+    public class UserRepository(ConnectionContext context) : IUserRepository
     {
-        private readonly ConnectionContext _context = new ConnectionContext();
+        private readonly ConnectionContext _context = context;
 
-        public void Add(Employee employee)
+        void IUserRepository.Add(User user)
         {
-            _context.Employees.Add(employee);
+            _context.User.Add(user);
             _context.SaveChanges();
         }
-
-        public List<EmployeeDTO> Get(int pageNumber, int pageQuantity)
+        public List<UserDTO> Get()
         {
-            return _context.Employees.Skip(pageNumber * pageQuantity)
-                .Take(pageQuantity)
-                .Select(b =>
-                new EmployeeDTO()
-                {
-                    Id = b.id,
-                    NameEmployee = b.name,
-                    Photo = b.photo
-                }).ToList();
-        }
-
-        public Employee? Get(int id)
-        {
-            return _context.Employees.Find(id);
+            throw new NotImplementedException();
         }
     }
 }

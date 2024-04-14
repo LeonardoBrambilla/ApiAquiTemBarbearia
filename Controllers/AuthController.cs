@@ -1,29 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ApiAquiTemBarbearia.Application.Services;
+﻿using ApiAquiTemBarbearia.Domain.Model.UserAggregate;
+using ApiAquiTemBarbearia.Infraestrutura.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ApiAquiTemBarbearia.Controllers
 {
     [ApiController]
-    [Route("api")]
+    [Route("api/auth")]
     public class AuthController : Controller
     {
+        private readonly UserRepository _userRepository;
+        public AuthController(UserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
+
         [HttpPost("login")]
         public IActionResult Auth(string username, string password)
         {
-            if (username == "filipe" && password == "123456")
-            {
-                var token = TokenService.GenerateToken(new Domain.Model.EmployeeAggregate.Employee());
-                return Ok(token);
-            }
-
             return BadRequest("username or password invalid");
         }
 
         [HttpPost("register")]
-        public IActionResult Register(string username, string password)
+        public IActionResult Register(User user)
         {
-            return Ok("token");
-
+            // _userRepository.Add(user);
+            return Ok(user);
         }
     }
 }

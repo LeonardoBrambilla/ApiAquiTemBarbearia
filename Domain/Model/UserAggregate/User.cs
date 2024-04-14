@@ -1,23 +1,27 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ApiAquiTemBarbearia.Domain.Model.EmployeeAggregate
+namespace ApiAquiTemBarbearia.Domain.Model.UserAggregate
 {
-    [Table("employee")]
-    public class Employee
+    [Table("user")]
+    public class User
     {
         [Key]
-        public int id { get; private set; }
-        public string name { get; private set; }
-        public int age { get; private set; }
-        public string? photo { get; private set; }
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public required string Email { get; set; }
+        public required string Telephone { get; set; }
+        public required string Password { get; set; }
+        public required string Photo { get; set; }
 
-        public Employee() { }
-        public Employee(string name, int age, string photo)
+        public User() { }
+        public User(string name, string email, string telephone, string password, string photo)
         {
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.age = age;
-            this.photo = photo;
+            this.Name = name;
+            this.Email = email;
+            this.Telephone = telephone;
+            this.Password = password;
+            this.Photo = photo;
         }
     }
 }

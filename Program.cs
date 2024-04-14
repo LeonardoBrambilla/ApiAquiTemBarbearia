@@ -1,17 +1,16 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text;
-using ApiAquiTemBarbearia;
 using ApiAquiTemBarbearia.Application.Mapping;
 using ApiAquiTemBarbearia.Application.Swagger;
-using ApiAquiTemBarbearia.Domain.Model.EmployeeAggregate;
 using ApiAquiTemBarbearia.Infraestrutura.Repositories;
+using ApiAquiTemBarbearia.Domain.Model.UserAggregate;
+using ApiAquiTemBarbearia.Infraestrutura;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,8 +69,11 @@ builder.Services.AddSwaggerGen(c =>
 
 });
 
-builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerGenOptions>();
+builder.Services.AddDbContext<ConnectionContext>();
+
 
 builder.Services.AddCors(options => {
     options.AddPolicy(name: "MyPolicy",

@@ -24,7 +24,7 @@ namespace ApiAquiTemBarbearia.Application.Swagger
         {
             var info = new OpenApiInfo()
             {
-                Title = "Web.API - Filipe Brito Dev",
+                Title = "Web.API - AquiTemBarbearia",
                 Version = description.ApiVersion.ToString()
             };
 

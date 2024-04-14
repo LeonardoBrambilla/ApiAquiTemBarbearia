@@ -1,13 +1,11 @@
 ﻿using ApiAquiTemBarbearia.Domain.DTOs;
 using ApiAquiTemBarbearia.Domain.Model.UserAggregate;
 
-namespace ApiAquiTemBarbearia.Domain.Model.EmployeeAggregate
+namespace ApiAquiTemBarbearia.Domain.Model.UserAggregate
 {
     public interface IUserRepository
     {
-        void Add(User employee);
-
-        List<UserDTO> Get(int pageNumber, int pageQuantity);
-        User? Get(int id);
+        void Add(User user);
+        List<UserDTO> Get();
     }
 }

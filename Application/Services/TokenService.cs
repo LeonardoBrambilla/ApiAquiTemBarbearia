@@ -2,20 +2,20 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using ApiAquiTemBarbearia.Domain.Model.EmployeeAggregate;
+using ApiAquiTemBarbearia.Domain.Model.UserAggregate;
 
 namespace ApiAquiTemBarbearia.Application.Services
 {
     public class TokenService
     {
-        public static object GenerateToken(Employee employee)
+        public static object GenerateToken(User user)
         {
             var key = Encoding.ASCII.GetBytes(Key.Secret);
             var tokenConfig = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                      new Claim("employeeId", employee.id.ToString()),
+                    new Claim("userId", "a"),
                 }),
                 Expires = DateTime.UtcNow.AddHours(3),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
